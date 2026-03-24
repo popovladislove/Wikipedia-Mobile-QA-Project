@@ -43,12 +43,12 @@ GET https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Python&
 # 2. Получение статьи по названию
 ## Request
 **Method:** GET
-
+```http
 GET https://en.wikipedia.org/w/api.php?action=query&titles=Python_(programming_language)&format=json
-
-Что проверяем
-статья существует
-API возвращает данные страницы
+```
+# Что проверяем
+- статья существует
+- API возвращает данные страницы
 ## Пример ожидаемого response
 ```json
 {
@@ -64,3 +64,19 @@ API возвращает данные страницы
   }
 }
 ```
+# Что валидируем
+- status code = 200
+- в query.pages есть объект страницы
+- title = Python (programming language)
+
+# 3. Проверка языковых ссылок статьи
+##Request
+**Method:** GET
+```http
+GET https://en.wikipedia.org/w/api.php?action=query&prop=langlinks&titles=Python_(programming_language)&lllimit=10&format=json
+```
+# Что проверяем
+- статья имеет альтернативные языковые версии
+- можно валидировать наличие переводов
+
+# Пример ожидаемого response
