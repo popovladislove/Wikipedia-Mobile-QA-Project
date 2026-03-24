@@ -1,0 +1,94 @@
+{
+  "info": {
+    "name": "Wikipedia Mobile API Checks",
+    "_postman_id": "99999999-8888-7777-6666-555555555555",
+    "description": "Публичные API-проверки для Wikipedia Mobile QA Project",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Поиск статьи Python",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/w/api.php?action=query&list=search&srsearch={{search_query}}&format=json",
+          "host": ["{{base_url}}"],
+          "path": ["w", "api.php"],
+          "query": [
+            { "key": "action", "value": "query" },
+            { "key": "list", "value": "search" },
+            { "key": "srsearch", "value": "{{search_query}}" },
+            { "key": "format", "value": "json" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Получение статьи по названию",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/w/api.php?action=query&titles={{article_title}}&format=json",
+          "host": ["{{base_url}}"],
+          "path": ["w", "api.php"],
+          "query": [
+            { "key": "action", "value": "query" },
+            { "key": "titles", "value": "{{article_title}}" },
+            { "key": "format", "value": "json" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Проверка языковых ссылок статьи",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/w/api.php?action=query&prop=langlinks&titles={{article_title}}&lllimit=10&format=json",
+          "host": ["{{base_url}}"],
+          "path": ["w", "api.php"],
+          "query": [
+            { "key": "action", "value": "query" },
+            { "key": "prop", "value": "langlinks" },
+            { "key": "titles", "value": "{{article_title}}" },
+            { "key": "lllimit", "value": "10" },
+            { "key": "format", "value": "json" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Проверка несуществующего запроса",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/w/api.php?action=query&list=search&srsearch={{invalid_query}}&format=json",
+          "host": ["{{base_url}}"],
+          "path": ["w", "api.php"],
+          "query": [
+            { "key": "action", "value": "query" },
+            { "key": "list", "value": "search" },
+            { "key": "srsearch", "value": "{{invalid_query}}" },
+            { "key": "format", "value": "json" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Проверка доступности API",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/w/api.php?action=query&meta=siteinfo&format=json",
+          "host": ["{{base_url}}"],
+          "path": ["w", "api.php"],
+          "query": [
+            { "key": "action", "value": "query" },
+            { "key": "meta", "value": "siteinfo" },
+            { "key": "format", "value": "json" }
+          ]
+        }
+      }
+    }
+  ]
+}
