@@ -11,3 +11,10 @@
 
 ```http
 GET https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Python&format=json
+```
+
+Что проверяем
+API доступен
+поиск возвращает релевантные результаты
+статья по запросу существует
+Пример ожидаемого response
