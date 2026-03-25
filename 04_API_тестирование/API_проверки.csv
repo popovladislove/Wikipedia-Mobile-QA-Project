@@ -1,4 +1,3 @@
-```csv
 ID,Название,Метод,Endpoint,Параметры,Ожидаемый результат,Статус
 API-001,Поиск статьи по запросу,GET,/w/api.php,"action=query; list=search; srsearch=Python; format=json",Статус 200 и непустая выдача,Passed
 API-002,Получение статьи по названию,GET,/w/api.php,"action=query; titles=Python_(programming_language); format=json",Статус 200 и наличие данных страницы,Passed
