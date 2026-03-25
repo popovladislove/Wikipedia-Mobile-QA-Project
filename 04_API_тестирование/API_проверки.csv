@@ -1,0 +1,6 @@
+```csv
+ID,Название,Метод,Endpoint,Параметры,Ожидаемый результат,Статус
+API-001,Поиск статьи по запросу,GET,/w/api.php,"action=query; list=search; srsearch=Python; format=json",Статус 200 и непустая выдача,Passed
+API-002,Получение статьи по названию,GET,/w/api.php,"action=query; titles=Python_(programming_language); format=json",Статус 200 и наличие данных страницы,Passed
+API-003,Проверка языковых ссылок статьи,GET,/w/api.php,"action=query; prop=langlinks; titles=Python_(programming_language); lllimit=10; format=json",Статус 200 и наличие langlinks,Passed
+API-004,Проверка несуществующего запроса,GET,/w/api.php,"action=query; list=search; srsearch=asdasd_non_existing_query_123; format=json",Статус 200 и корректная пустая выдача,Passed
